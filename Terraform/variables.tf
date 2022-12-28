@@ -17,5 +17,5 @@ variable "region" {
 variable "BQ_DATASET" {
   description = "BigQuery Dataset that raw data (from GCS) will be written to"
   type = string
-  default = "Ebay_MTG_Dual_Land_Sales"
+  default = "Ebay_MTG_Dual_Land_Saleszz"
 }

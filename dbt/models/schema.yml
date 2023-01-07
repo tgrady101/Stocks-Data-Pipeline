@@ -1,0 +1,40 @@
+version: 2
+
+sources:
+    - name: staging
+      database: stocks-data-pipeline
+      schema: Stock_Info_Dataset
+
+      tables:
+        - name: stock_values
+        - name: stock_info
+        - name: BTC_values
+      
+      
+models:
+  - name: stock_data
+    columns:
+      - name: date
+        tests:
+        +severity: warn
+          - not_null
+
+      - name: Ticker
+        tests:
+        +severity: warn
+          - not_null
+
+      - name: adjClose
+        tests:
+        +severity: warn
+          - not_null
+
+  - name: BTC
+    columns:
+      - name: date
+        tests:
+        +severity: warn
+          - not_null
+          - unique
+            
+                  

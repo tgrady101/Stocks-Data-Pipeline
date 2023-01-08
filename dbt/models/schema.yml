@@ -36,5 +36,12 @@ models:
         +severity: warn
           - not_null
           - unique
+
+  - name: stock_best_worst
+    columns:
+      - name: date
+        tests:
+          - not_null
+          - unique
             
                   

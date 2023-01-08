@@ -1,0 +1,25 @@
+[2023-01-07 23:15:06,754] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: btc_data_pipeline_dag.submit_dataproc_spark_job_task manual__2023-01-07T23:11:48.162146+00:00 [queued]>
+[2023-01-07 23:15:06,763] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: btc_data_pipeline_dag.submit_dataproc_spark_job_task manual__2023-01-07T23:11:48.162146+00:00 [queued]>
+[2023-01-07 23:15:06,763] {taskinstance.py:1356} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-07 23:15:06,763] {taskinstance.py:1357} INFO - Starting attempt 1 of 1
+[2023-01-07 23:15:06,763] {taskinstance.py:1358} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-07 23:15:06,778] {taskinstance.py:1377} INFO - Executing <Task(DataprocSubmitPySparkJobOperator): submit_dataproc_spark_job_task> on 2023-01-07 23:11:48.162146+00:00
+[2023-01-07 23:15:06,785] {standard_task_runner.py:52} INFO - Started process 3839 to run task
+[2023-01-07 23:15:06,791] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'btc_data_pipeline_dag', 'submit_dataproc_spark_job_task', 'manual__2023-01-07T23:11:48.162146+00:00', '--job-id', '116', '--raw', '--subdir', 'DAGS_FOLDER/btc_data_pipeline_dag.py', '--cfg-path', '/tmp/tmpvp4u6v8e', '--error-file', '/tmp/tmpph1l6zxk']
+[2023-01-07 23:15:06,793] {standard_task_runner.py:80} INFO - Job 116: Subtask submit_dataproc_spark_job_task
+[2023-01-07 23:15:06,860] {task_command.py:370} INFO - Running <TaskInstance: btc_data_pipeline_dag.submit_dataproc_spark_job_task manual__2023-01-07T23:11:48.162146+00:00 [running]> on host 48dd7f56541e
+[2023-01-07 23:15:06,930] {taskinstance.py:1569} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=btc_data_pipeline_dag
+AIRFLOW_CTX_TASK_ID=submit_dataproc_spark_job_task
+AIRFLOW_CTX_EXECUTION_DATE=2023-01-07T23:11:48.162146+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-01-07T23:11:48.162146+00:00
+[2023-01-07 23:15:06,932] {dataproc.py:950} INFO - Submitting pyspark_job job submit_dataproc_spark_job_task_20230107_5de8bb6f
+[2023-01-07 23:15:07,163] {dataproc.py:955} INFO - Job submit_dataproc_spark_job_task_20230107_5de8bb6f submitted successfully.
+[2023-01-07 23:15:07,177] {dataproc.py:962} INFO - Waiting for job submit_dataproc_spark_job_task_20230107_5de8bb6f to complete
+[2023-01-07 23:15:47,978] {dataproc.py:964} INFO - Job submit_dataproc_spark_job_task_20230107_5de8bb6f completed successfully.
+[2023-01-07 23:15:47,993] {taskinstance.py:1395} INFO - Marking task as SUCCESS. dag_id=btc_data_pipeline_dag, task_id=submit_dataproc_spark_job_task, execution_date=20230107T231148, start_date=20230107T231506, end_date=20230107T231547
+[2023-01-07 23:15:48,028] {local_task_job.py:156} INFO - Task exited with return code 0

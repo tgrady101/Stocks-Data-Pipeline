@@ -1,0 +1,33 @@
+[2023-01-04 21:41:06,249] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: stock_data_pipeline_dag.download_stock_data_from_datalake_task manual__2023-01-04T21:41:04.897110+00:00 [queued]>
+[2023-01-04 21:41:06,258] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: stock_data_pipeline_dag.download_stock_data_from_datalake_task manual__2023-01-04T21:41:04.897110+00:00 [queued]>
+[2023-01-04 21:41:06,258] {taskinstance.py:1356} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-04 21:41:06,258] {taskinstance.py:1357} INFO - Starting attempt 1 of 1
+[2023-01-04 21:41:06,258] {taskinstance.py:1358} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-04 21:41:06,269] {taskinstance.py:1377} INFO - Executing <Task(BashOperator): download_stock_data_from_datalake_task> on 2023-01-04 21:41:04.897110+00:00
+[2023-01-04 21:41:06,277] {standard_task_runner.py:52} INFO - Started process 2267 to run task
+[2023-01-04 21:41:06,281] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'stock_data_pipeline_dag', 'download_stock_data_from_datalake_task', 'manual__2023-01-04T21:41:04.897110+00:00', '--job-id', '14', '--raw', '--subdir', 'DAGS_FOLDER/stock_data_pipeline_dag.py', '--cfg-path', '/tmp/tmpez8tnwd1', '--error-file', '/tmp/tmpxm01cuod']
+[2023-01-04 21:41:06,283] {standard_task_runner.py:80} INFO - Job 14: Subtask download_stock_data_from_datalake_task
+[2023-01-04 21:41:06,338] {task_command.py:370} INFO - Running <TaskInstance: stock_data_pipeline_dag.download_stock_data_from_datalake_task manual__2023-01-04T21:41:04.897110+00:00 [running]> on host e35cd2348433
+[2023-01-04 21:41:06,402] {taskinstance.py:1569} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=stock_data_pipeline_dag
+AIRFLOW_CTX_TASK_ID=download_stock_data_from_datalake_task
+AIRFLOW_CTX_EXECUTION_DATE=2023-01-04T21:41:04.897110+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-01-04T21:41:04.897110+00:00
+[2023-01-04 21:41:06,404] {subprocess.py:62} INFO - Tmp dir root location: 
+ /tmp
+[2023-01-04 21:41:06,405] {subprocess.py:74} INFO - Running command: ['bash', '-c', 'python ~/home/tgrady101/***/dags/Load_Current_SP_500_End_of_Day_Prices_Into_GCS.py']
+[2023-01-04 21:41:06,423] {subprocess.py:85} INFO - Output:
+[2023-01-04 21:41:06,495] {subprocess.py:92} INFO - python: can't open file '/home/***/home/tgrady101/***/dags/Load_Current_SP_500_End_of_Day_Prices_Into_GCS.py': [Errno 2] No such file or directory
+[2023-01-04 21:41:06,497] {subprocess.py:96} INFO - Command exited with return code 2
+[2023-01-04 21:41:06,515] {taskinstance.py:1889} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/operators/bash.py", line 194, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 2.
+[2023-01-04 21:41:06,518] {taskinstance.py:1395} INFO - Marking task as FAILED. dag_id=stock_data_pipeline_dag, task_id=download_stock_data_from_datalake_task, execution_date=20230104T214104, start_date=20230104T214106, end_date=20230104T214106
+[2023-01-04 21:41:06,530] {standard_task_runner.py:92} ERROR - Failed to execute job 14 for task download_stock_data_from_datalake_task (Bash command failed. The command returned a non-zero exit code 2.; 2267)
+[2023-01-04 21:41:06,576] {local_task_job.py:156} INFO - Task exited with return code 1

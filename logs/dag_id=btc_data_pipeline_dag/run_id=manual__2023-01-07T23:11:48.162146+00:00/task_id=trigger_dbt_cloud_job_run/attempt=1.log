@@ -1,0 +1,35 @@
+[2023-01-07 23:16:37,906] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: btc_data_pipeline_dag.trigger_dbt_cloud_job_run manual__2023-01-07T23:11:48.162146+00:00 [queued]>
+[2023-01-07 23:16:37,915] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: btc_data_pipeline_dag.trigger_dbt_cloud_job_run manual__2023-01-07T23:11:48.162146+00:00 [queued]>
+[2023-01-07 23:16:37,915] {taskinstance.py:1356} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-07 23:16:37,915] {taskinstance.py:1357} INFO - Starting attempt 1 of 1
+[2023-01-07 23:16:37,915] {taskinstance.py:1358} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-07 23:16:37,930] {taskinstance.py:1377} INFO - Executing <Task(DbtCloudRunJobOperator): trigger_dbt_cloud_job_run> on 2023-01-07 23:11:48.162146+00:00
+[2023-01-07 23:16:37,937] {standard_task_runner.py:52} INFO - Started process 3932 to run task
+[2023-01-07 23:16:37,943] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'btc_data_pipeline_dag', 'trigger_dbt_cloud_job_run', 'manual__2023-01-07T23:11:48.162146+00:00', '--job-id', '118', '--raw', '--subdir', 'DAGS_FOLDER/btc_data_pipeline_dag.py', '--cfg-path', '/tmp/tmpw_3vem0d', '--error-file', '/tmp/tmpyq5svhs6']
+[2023-01-07 23:16:37,945] {standard_task_runner.py:80} INFO - Job 118: Subtask trigger_dbt_cloud_job_run
+[2023-01-07 23:16:38,012] {task_command.py:370} INFO - Running <TaskInstance: btc_data_pipeline_dag.trigger_dbt_cloud_job_run manual__2023-01-07T23:11:48.162146+00:00 [running]> on host 48dd7f56541e
+[2023-01-07 23:16:38,091] {taskinstance.py:1569} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=btc_data_pipeline_dag
+AIRFLOW_CTX_TASK_ID=trigger_dbt_cloud_job_run
+AIRFLOW_CTX_EXECUTION_DATE=2023-01-07T23:11:48.162146+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-01-07T23:11:48.162146+00:00
+[2023-01-07 23:16:38,101] {base.py:68} INFO - Using connection ID 'dbt_cloud' for task execution.
+[2023-01-07 23:16:38,114] {taskinstance.py:1889} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/providers/dbt/cloud/operators/dbt.py", line 115, in execute
+    self.hook = DbtCloudHook(self.dbt_cloud_conn_id)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/providers/dbt/cloud/hooks/dbt.py", line 151, in __init__
+    tenant = self.connection.schema if self.connection.schema else "cloud"
+  File "/usr/local/lib/python3.9/functools.py", line 993, in __get__
+    val = self.func(instance)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/providers/dbt/cloud/hooks/dbt.py", line 159, in connection
+    raise AirflowException("An API token is required to connect to dbt Cloud.")
+airflow.exceptions.AirflowException: An API token is required to connect to dbt Cloud.
+[2023-01-07 23:16:38,118] {taskinstance.py:1395} INFO - Marking task as FAILED. dag_id=btc_data_pipeline_dag, task_id=trigger_dbt_cloud_job_run, execution_date=20230107T231148, start_date=20230107T231637, end_date=20230107T231638
+[2023-01-07 23:16:38,133] {standard_task_runner.py:92} ERROR - Failed to execute job 118 for task trigger_dbt_cloud_job_run (An API token is required to connect to dbt Cloud.; 3932)
+[2023-01-07 23:16:38,156] {local_task_job.py:156} INFO - Task exited with return code 1
+[2023-01-07 23:16:38,189] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

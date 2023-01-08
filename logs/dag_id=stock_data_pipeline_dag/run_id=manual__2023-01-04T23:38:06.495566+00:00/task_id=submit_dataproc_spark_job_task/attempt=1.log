@@ -1,0 +1,148 @@
+[2023-01-04 23:51:30,255] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: stock_data_pipeline_dag.submit_dataproc_spark_job_task manual__2023-01-04T23:38:06.495566+00:00 [queued]>
+[2023-01-04 23:51:30,267] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: stock_data_pipeline_dag.submit_dataproc_spark_job_task manual__2023-01-04T23:38:06.495566+00:00 [queued]>
+[2023-01-04 23:51:30,267] {taskinstance.py:1356} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-04 23:51:30,267] {taskinstance.py:1357} INFO - Starting attempt 1 of 1
+[2023-01-04 23:51:30,267] {taskinstance.py:1358} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-04 23:51:30,285] {taskinstance.py:1377} INFO - Executing <Task(DataprocSubmitPySparkJobOperator): submit_dataproc_spark_job_task> on 2023-01-04 23:38:06.495566+00:00
+[2023-01-04 23:51:30,313] {standard_task_runner.py:52} INFO - Started process 579 to run task
+[2023-01-04 23:51:30,319] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'stock_data_pipeline_dag', 'submit_dataproc_spark_job_task', 'manual__2023-01-04T23:38:06.495566+00:00', '--job-id', '34', '--raw', '--subdir', 'DAGS_FOLDER/stock_data_pipeline_dag.py', '--cfg-path', '/tmp/tmp9oqfqq1c', '--error-file', '/tmp/tmphv9cv34v']
+[2023-01-04 23:51:30,321] {standard_task_runner.py:80} INFO - Job 34: Subtask submit_dataproc_spark_job_task
+[2023-01-04 23:51:30,387] {task_command.py:370} INFO - Running <TaskInstance: stock_data_pipeline_dag.submit_dataproc_spark_job_task manual__2023-01-04T23:38:06.495566+00:00 [running]> on host 2302f2c95f83
+[2023-01-04 23:51:30,458] {taskinstance.py:1569} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=stock_data_pipeline_dag
+AIRFLOW_CTX_TASK_ID=submit_dataproc_spark_job_task
+AIRFLOW_CTX_EXECUTION_DATE=2023-01-04T23:38:06.495566+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-01-04T23:38:06.495566+00:00
+[2023-01-04 23:51:30,460] {dataproc.py:950} INFO - Submitting pyspark_job job submit_dataproc_spark_job_task_20230104_91918098
+[2023-01-04 23:51:30,726] {dataproc.py:955} INFO - Job submit_dataproc_spark_job_task_20230104_91918098 submitted successfully.
+[2023-01-04 23:51:30,743] {dataproc.py:962} INFO - Waiting for job submit_dataproc_spark_job_task_20230104_91918098 to complete
+[2023-01-05 00:00:09,893] {taskinstance.py:1889} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/providers/google/cloud/operators/dataproc.py", line 1491, in execute
+    super().execute(context)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/providers/google/cloud/operators/dataproc.py", line 963, in execute
+    self.hook.wait_for_job(job_id=job_id, region=self.region, project_id=self.project_id)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/providers/google/common/hooks/base_google.py", line 463, in inner_wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/providers/google/cloud/hooks/dataproc.py", line 696, in wait_for_job
+    raise AirflowException(f'Job failed:\n{job}')
+airflow.exceptions.AirflowException: Job failed:
+reference {
+  project_id: "stocks-data-pipeline"
+  job_id: "submit_dataproc_spark_job_task_20230104_91918098"
+}
+placement {
+  cluster_name: "move-data"
+  cluster_uuid: "13fb71e7-98b6-4343-91ee-9738f3a3e4c5"
+}
+pyspark_job {
+  main_python_file_uri: "gs://data_lake_stocks-data-pipeline/Move_Current_SP_500_Data_From_GCS_to_BigQuery.py"
+  jar_file_uris: "gs://spark-lib/bigquery/spark-bigquery-with-dependencies_2.12-0.27.1.jar"
+}
+status {
+  state: ERROR
+  details: "Google Cloud Dataproc Agent reports job failure. If logs are available, they can be found at:\nhttps://console.cloud.google.com/dataproc/jobs/submit_dataproc_spark_job_task_20230104_91918098?project=stocks-data-pipeline&region=us-central1\ngcloud dataproc jobs wait \'submit_dataproc_spark_job_task_20230104_91918098\' --region \'us-central1\' --project \'stocks-data-pipeline\'\nhttps://console.cloud.google.com/storage/browser/dataproc-staging-us-central1-230775253-xzsonnys/google-cloud-dataproc-metainfo/13fb71e7-98b6-4343-91ee-9738f3a3e4c5/jobs/submit_dataproc_spark_job_task_20230104_91918098/\ngs://dataproc-staging-us-central1-230775253-xzsonnys/google-cloud-dataproc-metainfo/13fb71e7-98b6-4343-91ee-9738f3a3e4c5/jobs/submit_dataproc_spark_job_task_20230104_91918098/driveroutput"
+  state_start_time {
+    seconds: 1672876806
+    nanos: 743951000
+  }
+}
+yarn_applications {
+  name: "test"
+  state: FINISHED
+  progress: 1.0
+  tracking_url: "http://move-data-m:8088/proxy/application_1672876204394_0001/"
+}
+status_history {
+  state: PENDING
+  state_start_time {
+    seconds: 1672876290
+    nanos: 693417000
+  }
+}
+status_history {
+  state: SETUP_DONE
+  state_start_time {
+    seconds: 1672876290
+    nanos: 731016000
+  }
+}
+status_history {
+  state: RUNNING
+  state_start_time {
+    seconds: 1672876291
+    nanos: 83200000
+  }
+}
+driver_control_files_uri: "gs://dataproc-staging-us-central1-230775253-xzsonnys/google-cloud-dataproc-metainfo/13fb71e7-98b6-4343-91ee-9738f3a3e4c5/jobs/submit_dataproc_spark_job_task_20230104_91918098/"
+driver_output_resource_uri: "gs://dataproc-staging-us-central1-230775253-xzsonnys/google-cloud-dataproc-metainfo/13fb71e7-98b6-4343-91ee-9738f3a3e4c5/jobs/submit_dataproc_spark_job_task_20230104_91918098/driveroutput"
+labels {
+  key: "***-version"
+  value: "v2-3-2"
+}
+job_uuid: "4d202366-b8de-402e-a761-cd2fb618e97d"
+done: true
+
+[2023-01-05 00:00:09,901] {taskinstance.py:1395} INFO - Marking task as FAILED. dag_id=stock_data_pipeline_dag, task_id=submit_dataproc_spark_job_task, execution_date=20230104T233806, start_date=20230104T235130, end_date=20230105T000009
+[2023-01-05 00:00:09,914] {standard_task_runner.py:92} ERROR - Failed to execute job 34 for task submit_dataproc_spark_job_task (Job failed:
+reference {
+  project_id: "stocks-data-pipeline"
+  job_id: "submit_dataproc_spark_job_task_20230104_91918098"
+}
+placement {
+  cluster_name: "move-data"
+  cluster_uuid: "13fb71e7-98b6-4343-91ee-9738f3a3e4c5"
+}
+pyspark_job {
+  main_python_file_uri: "gs://data_lake_stocks-data-pipeline/Move_Current_SP_500_Data_From_GCS_to_BigQuery.py"
+  jar_file_uris: "gs://spark-lib/bigquery/spark-bigquery-with-dependencies_2.12-0.27.1.jar"
+}
+status {
+  state: ERROR
+  details: "Google Cloud Dataproc Agent reports job failure. If logs are available, they can be found at:\nhttps://console.cloud.google.com/dataproc/jobs/submit_dataproc_spark_job_task_20230104_91918098?project=stocks-data-pipeline&region=us-central1\ngcloud dataproc jobs wait \'submit_dataproc_spark_job_task_20230104_91918098\' --region \'us-central1\' --project \'stocks-data-pipeline\'\nhttps://console.cloud.google.com/storage/browser/dataproc-staging-us-central1-230775253-xzsonnys/google-cloud-dataproc-metainfo/13fb71e7-98b6-4343-91ee-9738f3a3e4c5/jobs/submit_dataproc_spark_job_task_20230104_91918098/\ngs://dataproc-staging-us-central1-230775253-xzsonnys/google-cloud-dataproc-metainfo/13fb71e7-98b6-4343-91ee-9738f3a3e4c5/jobs/submit_dataproc_spark_job_task_20230104_91918098/driveroutput"
+  state_start_time {
+    seconds: 1672876806
+    nanos: 743951000
+  }
+}
+yarn_applications {
+  name: "test"
+  state: FINISHED
+  progress: 1.0
+  tracking_url: "http://move-data-m:8088/proxy/application_1672876204394_0001/"
+}
+status_history {
+  state: PENDING
+  state_start_time {
+    seconds: 1672876290
+    nanos: 693417000
+  }
+}
+status_history {
+  state: SETUP_DONE
+  state_start_time {
+    seconds: 1672876290
+    nanos: 731016000
+  }
+}
+status_history {
+  state: RUNNING
+  state_start_time {
+    seconds: 1672876291
+    nanos: 83200000
+  }
+}
+driver_control_files_uri: "gs://dataproc-staging-us-central1-230775253-xzsonnys/google-cloud-dataproc-metainfo/13fb71e7-98b6-4343-91ee-9738f3a3e4c5/jobs/submit_dataproc_spark_job_task_20230104_91918098/"
+driver_output_resource_uri: "gs://dataproc-staging-us-central1-230775253-xzsonnys/google-cloud-dataproc-metainfo/13fb71e7-98b6-4343-91ee-9738f3a3e4c5/jobs/submit_dataproc_spark_job_task_20230104_91918098/driveroutput"
+labels {
+  key: "***-version"
+  value: "v2-3-2"
+}
+job_uuid: "4d202366-b8de-402e-a761-cd2fb618e97d"
+done: true
+; 579)
+[2023-01-05 00:00:09,926] {local_task_job.py:156} INFO - Task exited with return code 1

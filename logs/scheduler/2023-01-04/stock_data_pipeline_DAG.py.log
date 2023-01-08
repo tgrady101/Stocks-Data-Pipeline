@@ -1,0 +1,32 @@
+[2023-01-04 18:49:57,989] {processor.py:153} INFO - Started process (PID=587) to work on /opt/airflow/dags/stock_data_pipeline_DAG.py
+[2023-01-04 18:49:57,989] {processor.py:641} INFO - Processing file /opt/airflow/dags/stock_data_pipeline_DAG.py for tasks to queue
+[2023-01-04 18:49:57,990] {logging_mixin.py:115} INFO - [2023-01-04 18:49:57,990] {dagbag.py:507} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_pipeline_DAG.py
+[2023-01-04 18:50:00,860] {processor.py:651} INFO - DAG(s) dict_keys(['data_ingestion_gcs_dag']) retrieved from /opt/airflow/dags/stock_data_pipeline_DAG.py
+[2023-01-04 18:50:00,951] {logging_mixin.py:115} INFO - [2023-01-04 18:50:00,951] {manager.py:508} INFO - Created Permission View: can delete on DAG:data_ingestion_gcs_dag
+[2023-01-04 18:50:00,964] {logging_mixin.py:115} INFO - [2023-01-04 18:50:00,964] {manager.py:508} INFO - Created Permission View: can read on DAG:data_ingestion_gcs_dag
+[2023-01-04 18:50:00,972] {logging_mixin.py:115} INFO - [2023-01-04 18:50:00,972] {manager.py:508} INFO - Created Permission View: can edit on DAG:data_ingestion_gcs_dag
+[2023-01-04 18:50:00,973] {logging_mixin.py:115} INFO - [2023-01-04 18:50:00,973] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-01-04 18:50:00,983] {logging_mixin.py:115} INFO - [2023-01-04 18:50:00,983] {dag.py:2398} INFO - Creating ORM DAG for data_ingestion_gcs_dag
+[2023-01-04 18:50:01,001] {logging_mixin.py:115} INFO - [2023-01-04 18:50:01,000] {dag.py:2927} INFO - Setting next_dagrun for data_ingestion_gcs_dag to 2023-01-03T00:00:00+00:00, run_after=2023-01-04T00:00:00+00:00
+[2023-01-04 18:50:01,017] {processor.py:161} INFO - Processing /opt/airflow/dags/stock_data_pipeline_DAG.py took 3.033 seconds
+[2023-01-04 18:50:31,071] {processor.py:153} INFO - Started process (PID=609) to work on /opt/airflow/dags/stock_data_pipeline_DAG.py
+[2023-01-04 18:50:31,076] {processor.py:641} INFO - Processing file /opt/airflow/dags/stock_data_pipeline_DAG.py for tasks to queue
+[2023-01-04 18:50:31,077] {logging_mixin.py:115} INFO - [2023-01-04 18:50:31,076] {dagbag.py:507} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_pipeline_DAG.py
+[2023-01-04 18:50:31,852] {processor.py:651} INFO - DAG(s) dict_keys(['data_ingestion_gcs_dag']) retrieved from /opt/airflow/dags/stock_data_pipeline_DAG.py
+[2023-01-04 18:50:31,874] {logging_mixin.py:115} INFO - [2023-01-04 18:50:31,874] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-01-04 18:50:31,893] {logging_mixin.py:115} INFO - [2023-01-04 18:50:31,893] {dag.py:2927} INFO - Setting next_dagrun for data_ingestion_gcs_dag to 2023-01-03T00:00:00+00:00, run_after=2023-01-04T00:00:00+00:00
+[2023-01-04 18:50:31,903] {processor.py:161} INFO - Processing /opt/airflow/dags/stock_data_pipeline_DAG.py took 0.837 seconds
+[2023-01-04 18:51:01,997] {processor.py:153} INFO - Started process (PID=632) to work on /opt/airflow/dags/stock_data_pipeline_DAG.py
+[2023-01-04 18:51:01,998] {processor.py:641} INFO - Processing file /opt/airflow/dags/stock_data_pipeline_DAG.py for tasks to queue
+[2023-01-04 18:51:01,998] {logging_mixin.py:115} INFO - [2023-01-04 18:51:01,998] {dagbag.py:507} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_pipeline_DAG.py
+[2023-01-04 18:51:02,868] {processor.py:651} INFO - DAG(s) dict_keys(['data_ingestion_gcs_dag']) retrieved from /opt/airflow/dags/stock_data_pipeline_DAG.py
+[2023-01-04 18:51:02,889] {logging_mixin.py:115} INFO - [2023-01-04 18:51:02,889] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-01-04 18:51:02,910] {logging_mixin.py:115} INFO - [2023-01-04 18:51:02,909] {dag.py:2927} INFO - Setting next_dagrun for data_ingestion_gcs_dag to 2023-01-03T00:00:00+00:00, run_after=2023-01-04T00:00:00+00:00
+[2023-01-04 18:51:02,919] {processor.py:161} INFO - Processing /opt/airflow/dags/stock_data_pipeline_DAG.py took 0.927 seconds
+[2023-01-04 18:51:33,008] {processor.py:153} INFO - Started process (PID=653) to work on /opt/airflow/dags/stock_data_pipeline_DAG.py
+[2023-01-04 18:51:33,024] {processor.py:641} INFO - Processing file /opt/airflow/dags/stock_data_pipeline_DAG.py for tasks to queue
+[2023-01-04 18:51:33,024] {logging_mixin.py:115} INFO - [2023-01-04 18:51:33,024] {dagbag.py:507} INFO - Filling up the DagBag from /opt/airflow/dags/stock_data_pipeline_DAG.py
+[2023-01-04 18:51:33,786] {processor.py:651} INFO - DAG(s) dict_keys(['data_ingestion_gcs_dag']) retrieved from /opt/airflow/dags/stock_data_pipeline_DAG.py
+[2023-01-04 18:51:33,808] {logging_mixin.py:115} INFO - [2023-01-04 18:51:33,808] {dag.py:2379} INFO - Sync 1 DAGs
+[2023-01-04 18:51:33,827] {logging_mixin.py:115} INFO - [2023-01-04 18:51:33,827] {dag.py:2927} INFO - Setting next_dagrun for data_ingestion_gcs_dag to 2023-01-03T00:00:00+00:00, run_after=2023-01-04T00:00:00+00:00
+[2023-01-04 18:51:33,837] {processor.py:161} INFO - Processing /opt/airflow/dags/stock_data_pipeline_DAG.py took 0.834 seconds

@@ -1,0 +1,22 @@
+[2023-01-07 23:11:49,472] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: btc_data_pipeline_dag.upload_BTC_data_to_datalake_task manual__2023-01-07T23:11:48.162146+00:00 [queued]>
+[2023-01-07 23:11:49,480] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: btc_data_pipeline_dag.upload_BTC_data_to_datalake_task manual__2023-01-07T23:11:48.162146+00:00 [queued]>
+[2023-01-07 23:11:49,481] {taskinstance.py:1356} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-07 23:11:49,481] {taskinstance.py:1357} INFO - Starting attempt 1 of 1
+[2023-01-07 23:11:49,481] {taskinstance.py:1358} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-07 23:11:49,494] {taskinstance.py:1377} INFO - Executing <Task(PythonOperator): upload_BTC_data_to_datalake_task> on 2023-01-07 23:11:48.162146+00:00
+[2023-01-07 23:11:49,501] {standard_task_runner.py:52} INFO - Started process 3701 to run task
+[2023-01-07 23:11:49,506] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'btc_data_pipeline_dag', 'upload_BTC_data_to_datalake_task', 'manual__2023-01-07T23:11:48.162146+00:00', '--job-id', '114', '--raw', '--subdir', 'DAGS_FOLDER/btc_data_pipeline_dag.py', '--cfg-path', '/tmp/tmpjoc57yy4', '--error-file', '/tmp/tmp47sjjov8']
+[2023-01-07 23:11:49,507] {standard_task_runner.py:80} INFO - Job 114: Subtask upload_BTC_data_to_datalake_task
+[2023-01-07 23:11:49,574] {task_command.py:370} INFO - Running <TaskInstance: btc_data_pipeline_dag.upload_BTC_data_to_datalake_task manual__2023-01-07T23:11:48.162146+00:00 [running]> on host 48dd7f56541e
+[2023-01-07 23:11:49,663] {taskinstance.py:1569} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=btc_data_pipeline_dag
+AIRFLOW_CTX_TASK_ID=upload_BTC_data_to_datalake_task
+AIRFLOW_CTX_EXECUTION_DATE=2023-01-07T23:11:48.162146+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-01-07T23:11:48.162146+00:00
+[2023-01-07 23:11:50,916] {python.py:173} INFO - Done. Returned value was: None
+[2023-01-07 23:11:50,930] {taskinstance.py:1395} INFO - Marking task as SUCCESS. dag_id=btc_data_pipeline_dag, task_id=upload_BTC_data_to_datalake_task, execution_date=20230107T231148, start_date=20230107T231149, end_date=20230107T231150
+[2023-01-07 23:11:50,962] {local_task_job.py:156} INFO - Task exited with return code 0

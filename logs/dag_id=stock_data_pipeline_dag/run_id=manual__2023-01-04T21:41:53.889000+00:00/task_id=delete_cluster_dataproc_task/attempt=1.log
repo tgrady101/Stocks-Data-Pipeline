@@ -1,0 +1,59 @@
+[2023-01-04 21:41:58,358] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: stock_data_pipeline_dag.delete_cluster_dataproc_task manual__2023-01-04T21:41:53.889000+00:00 [queued]>
+[2023-01-04 21:41:58,367] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: stock_data_pipeline_dag.delete_cluster_dataproc_task manual__2023-01-04T21:41:53.889000+00:00 [queued]>
+[2023-01-04 21:41:58,367] {taskinstance.py:1356} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-04 21:41:58,367] {taskinstance.py:1357} INFO - Starting attempt 1 of 1
+[2023-01-04 21:41:58,367] {taskinstance.py:1358} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-04 21:41:58,378] {taskinstance.py:1377} INFO - Executing <Task(DataprocDeleteClusterOperator): delete_cluster_dataproc_task> on 2023-01-04 21:41:53.889000+00:00
+[2023-01-04 21:41:58,386] {standard_task_runner.py:52} INFO - Started process 2311 to run task
+[2023-01-04 21:41:58,391] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'stock_data_pipeline_dag', 'delete_cluster_dataproc_task', 'manual__2023-01-04T21:41:53.889000+00:00', '--job-id', '17', '--raw', '--subdir', 'DAGS_FOLDER/stock_data_pipeline_dag.py', '--cfg-path', '/tmp/tmp410bx3zv', '--error-file', '/tmp/tmp3dvt1yb4']
+[2023-01-04 21:41:58,392] {standard_task_runner.py:80} INFO - Job 17: Subtask delete_cluster_dataproc_task
+[2023-01-04 21:41:58,449] {task_command.py:370} INFO - Running <TaskInstance: stock_data_pipeline_dag.delete_cluster_dataproc_task manual__2023-01-04T21:41:53.889000+00:00 [running]> on host e35cd2348433
+[2023-01-04 21:41:58,520] {taskinstance.py:1569} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=stock_data_pipeline_dag
+AIRFLOW_CTX_TASK_ID=delete_cluster_dataproc_task
+AIRFLOW_CTX_EXECUTION_DATE=2023-01-04T21:41:53.889000+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-01-04T21:41:53.889000+00:00
+[2023-01-04 21:41:58,522] {base.py:68} INFO - Using connection ID 'google_cloud_default' for task execution.
+[2023-01-04 21:41:58,523] {dataproc.py:816} INFO - Deleting cluster: move-data
+[2023-01-04 21:41:58,554] {taskinstance.py:1889} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/api_core/grpc_helpers.py", line 50, in error_remapped_callable
+    return callable_(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/grpc/_channel.py", line 946, in __call__
+    return _end_unary_response_blocking(state, call, False, None)
+  File "/home/airflow/.local/lib/python3.9/site-packages/grpc/_channel.py", line 849, in _end_unary_response_blocking
+    raise _InactiveRpcError(state)
+grpc._channel._InactiveRpcError: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.UNKNOWN
+	details = "Stream removed"
+	debug_error_string = "{"created":"@1672868518.553406032","description":"Error received from peer ipv4:142.251.166.95:443","file":"src/core/lib/surface/call.cc","file_line":966,"grpc_message":"Stream removed","grpc_status":2}"
+>
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/providers/google/cloud/operators/dataproc.py", line 817, in execute
+    operation = hook.delete_cluster(
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/providers/google/common/hooks/base_google.py", line 463, in inner_wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/providers/google/cloud/hooks/dataproc.py", line 348, in delete_cluster
+    result = client.delete_cluster(
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/cloud/dataproc_v1/services/cluster_controller/client.py", line 1124, in delete_cluster
+    response = rpc(
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/api_core/gapic_v1/method.py", line 154, in __call__
+    return wrapped_func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/api_core/retry.py", line 283, in retry_wrapped_func
+    return retry_target(
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/api_core/retry.py", line 190, in retry_target
+    return target()
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/api_core/grpc_helpers.py", line 52, in error_remapped_callable
+    raise exceptions.from_grpc_error(exc) from exc
+google.api_core.exceptions.Unknown: None Stream removed
+[2023-01-04 21:41:58,567] {taskinstance.py:1395} INFO - Marking task as FAILED. dag_id=stock_data_pipeline_dag, task_id=delete_cluster_dataproc_task, execution_date=20230104T214153, start_date=20230104T214158, end_date=20230104T214158
+[2023-01-04 21:41:58,580] {standard_task_runner.py:92} ERROR - Failed to execute job 17 for task delete_cluster_dataproc_task (None Stream removed; 2311)
+[2023-01-04 21:41:58,603] {local_task_job.py:156} INFO - Task exited with return code 1
+[2023-01-04 21:41:58,638] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

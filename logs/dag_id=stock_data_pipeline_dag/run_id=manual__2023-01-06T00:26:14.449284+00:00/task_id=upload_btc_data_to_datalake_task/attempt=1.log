@@ -1,0 +1,97 @@
+[2023-01-06 00:26:16,705] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: stock_data_pipeline_dag.upload_btc_data_to_datalake_task manual__2023-01-06T00:26:14.449284+00:00 [queued]>
+[2023-01-06 00:26:16,714] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: stock_data_pipeline_dag.upload_btc_data_to_datalake_task manual__2023-01-06T00:26:14.449284+00:00 [queued]>
+[2023-01-06 00:26:16,714] {taskinstance.py:1356} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-06 00:26:16,714] {taskinstance.py:1357} INFO - Starting attempt 1 of 1
+[2023-01-06 00:26:16,714] {taskinstance.py:1358} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-06 00:26:16,728] {taskinstance.py:1377} INFO - Executing <Task(PythonOperator): upload_btc_data_to_datalake_task> on 2023-01-06 00:26:14.449284+00:00
+[2023-01-06 00:26:16,735] {standard_task_runner.py:52} INFO - Started process 6470 to run task
+[2023-01-06 00:26:16,739] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'stock_data_pipeline_dag', 'upload_btc_data_to_datalake_task', 'manual__2023-01-06T00:26:14.449284+00:00', '--job-id', '73', '--raw', '--subdir', 'DAGS_FOLDER/stock_data_pipeline_dag.py', '--cfg-path', '/tmp/tmpvcso2f2y', '--error-file', '/tmp/tmplz58cam_']
+[2023-01-06 00:26:16,741] {standard_task_runner.py:80} INFO - Job 73: Subtask upload_btc_data_to_datalake_task
+[2023-01-06 00:26:16,805] {task_command.py:370} INFO - Running <TaskInstance: stock_data_pipeline_dag.upload_btc_data_to_datalake_task manual__2023-01-06T00:26:14.449284+00:00 [running]> on host 7aa3417b2d87
+[2023-01-06 00:26:16,880] {taskinstance.py:1569} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=stock_data_pipeline_dag
+AIRFLOW_CTX_TASK_ID=upload_btc_data_to_datalake_task
+AIRFLOW_CTX_EXECUTION_DATE=2023-01-06T00:26:14.449284+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-01-06T00:26:14.449284+00:00
+[2023-01-06 00:29:03,870] {local_task_job.py:220} WARNING - State of this instance has been externally set to removed. Terminating instance.
+[2023-01-06 00:29:03,873] {process_utils.py:125} INFO - Sending Signals.SIGTERM to group 6470. PIDs of all processes in the group: [6470]
+[2023-01-06 00:29:03,873] {process_utils.py:80} INFO - Sending the signal Signals.SIGTERM to group 6470
+[2023-01-06 00:29:03,873] {taskinstance.py:1541} ERROR - Received SIGTERM. Terminating subprocesses.
+[2023-01-06 00:29:03,886] {taskinstance.py:1889} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/operators/python.py", line 171, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/operators/python.py", line 189, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/Load_Current_SP_500_End_of_Day_Prices_Into_GCS.py", line 63, in main
+    load_csv(df, ticker)
+  File "/opt/airflow/dags/Load_Current_SP_500_End_of_Day_Prices_Into_GCS.py", line 55, in load_csv
+    bucket = client.get_bucket('data_lake_stocks-data-pipeline')
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/cloud/storage/client.py", line 765, in get_bucket
+    bucket.reload(
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/cloud/storage/bucket.py", line 1008, in reload
+    super(Bucket, self).reload(
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/cloud/storage/_helpers.py", line 227, in reload
+    api_response = client._get_resource(
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/cloud/storage/client.py", line 349, in _get_resource
+    return self._connection.api_request(
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/cloud/storage/_http.py", line 80, in api_request
+    return call()
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/api_core/retry.py", line 283, in retry_wrapped_func
+    return retry_target(
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/api_core/retry.py", line 190, in retry_target
+    return target()
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/cloud/_http/__init__.py", line 482, in api_request
+    response = self._make_request(
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/cloud/_http/__init__.py", line 341, in _make_request
+    return self._do_request(
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/cloud/_http/__init__.py", line 379, in _do_request
+    return self.http.request(
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/auth/transport/requests.py", line 545, in request
+    self.credentials.before_request(auth_request, method, url, request_headers)
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/auth/credentials.py", line 133, in before_request
+    self.refresh(request)
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/oauth2/service_account.py", line 410, in refresh
+    access_token, expiry, _ = _client.jwt_grant(
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/oauth2/_client.py", line 217, in jwt_grant
+    response_data = _token_endpoint_request(request, token_uri, body)
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/oauth2/_client.py", line 185, in _token_endpoint_request
+    response_status_ok, response_data = _token_endpoint_request_no_throw(
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/oauth2/_client.py", line 124, in _token_endpoint_request_no_throw
+    response = request(
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/auth/transport/requests.py", line 193, in __call__
+    response = self.session.request(
+  File "/home/airflow/.local/lib/python3.9/site-packages/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/requests/sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/requests/adapters.py", line 489, in send
+    resp = conn.urlopen(
+  File "/home/airflow/.local/lib/python3.9/site-packages/urllib3/connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "/home/airflow/.local/lib/python3.9/site-packages/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/home/airflow/.local/lib/python3.9/site-packages/urllib3/connectionpool.py", line 1042, in _validate_conn
+    conn.connect()
+  File "/home/airflow/.local/lib/python3.9/site-packages/urllib3/connection.py", line 414, in connect
+    self.sock = ssl_wrap_socket(
+  File "/home/airflow/.local/lib/python3.9/site-packages/urllib3/util/ssl_.py", line 449, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(
+  File "/home/airflow/.local/lib/python3.9/site-packages/urllib3/util/ssl_.py", line 493, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+  File "/usr/local/lib/python3.9/ssl.py", line 501, in wrap_socket
+    return self.sslsocket_class._create(
+  File "/usr/local/lib/python3.9/ssl.py", line 1041, in _create
+    self.do_handshake()
+  File "/usr/local/lib/python3.9/ssl.py", line 1310, in do_handshake
+    self._sslobj.do_handshake()
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/models/taskinstance.py", line 1543, in signal_handler
+    raise AirflowException("Task received SIGTERM signal")
+airflow.exceptions.AirflowException: Task received SIGTERM signal
+[2023-01-06 00:29:03,898] {taskinstance.py:1395} INFO - Marking task as FAILED. dag_id=stock_data_pipeline_dag, task_id=upload_btc_data_to_datalake_task, execution_date=20230106T002614, start_date=20230106T002616, end_date=20230106T002903
+[2023-01-06 00:29:03,916] {standard_task_runner.py:92} ERROR - Failed to execute job 73 for task upload_btc_data_to_datalake_task (Task received SIGTERM signal; 6470)
+[2023-01-06 00:29:03,966] {process_utils.py:75} INFO - Process psutil.Process(pid=6470, status='terminated', exitcode=1, started='00:26:16') (6470) terminated with exit code 1

@@ -1,0 +1,176 @@
+[2023-01-05 03:00:52,765] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: btc_data_pipeline_dag.submit_dataproc_spark_job_task manual__2023-01-05T02:57:38.278990+00:00 [queued]>
+[2023-01-05 03:00:52,775] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: btc_data_pipeline_dag.submit_dataproc_spark_job_task manual__2023-01-05T02:57:38.278990+00:00 [queued]>
+[2023-01-05 03:00:52,775] {taskinstance.py:1356} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-05 03:00:52,775] {taskinstance.py:1357} INFO - Starting attempt 1 of 1
+[2023-01-05 03:00:52,775] {taskinstance.py:1358} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-05 03:00:52,789] {taskinstance.py:1377} INFO - Executing <Task(DataprocSubmitPySparkJobOperator): submit_dataproc_spark_job_task> on 2023-01-05 02:57:38.278990+00:00
+[2023-01-05 03:00:52,797] {standard_task_runner.py:52} INFO - Started process 431 to run task
+[2023-01-05 03:00:52,804] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'btc_data_pipeline_dag', 'submit_dataproc_spark_job_task', 'manual__2023-01-05T02:57:38.278990+00:00', '--job-id', '47', '--raw', '--subdir', 'DAGS_FOLDER/btc_data_pipeline_dag.py', '--cfg-path', '/tmp/tmpseqjwru2', '--error-file', '/tmp/tmp8ksvr6gk']
+[2023-01-05 03:00:52,805] {standard_task_runner.py:80} INFO - Job 47: Subtask submit_dataproc_spark_job_task
+[2023-01-05 03:00:52,873] {task_command.py:370} INFO - Running <TaskInstance: btc_data_pipeline_dag.submit_dataproc_spark_job_task manual__2023-01-05T02:57:38.278990+00:00 [running]> on host 94450fd8b415
+[2023-01-05 03:00:52,949] {taskinstance.py:1569} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=btc_data_pipeline_dag
+AIRFLOW_CTX_TASK_ID=submit_dataproc_spark_job_task
+AIRFLOW_CTX_EXECUTION_DATE=2023-01-05T02:57:38.278990+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-01-05T02:57:38.278990+00:00
+[2023-01-05 03:00:52,951] {dataproc.py:950} INFO - Submitting pyspark_job job submit_dataproc_spark_job_task_20230105_7a5f64af
+[2023-01-05 03:00:53,212] {dataproc.py:955} INFO - Job submit_dataproc_spark_job_task_20230105_7a5f64af submitted successfully.
+[2023-01-05 03:00:53,229] {dataproc.py:962} INFO - Waiting for job submit_dataproc_spark_job_task_20230105_7a5f64af to complete
+[2023-01-05 03:10:53,931] {taskinstance.py:1889} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/providers/google/cloud/operators/dataproc.py", line 1491, in execute
+    super().execute(context)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/providers/google/cloud/operators/dataproc.py", line 963, in execute
+    self.hook.wait_for_job(job_id=job_id, region=self.region, project_id=self.project_id)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/providers/google/common/hooks/base_google.py", line 463, in inner_wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/providers/google/cloud/hooks/dataproc.py", line 698, in wait_for_job
+    raise AirflowException(f'Job was cancelled:\n{job}')
+airflow.exceptions.AirflowException: Job was cancelled:
+reference {
+  project_id: "stocks-data-pipeline"
+  job_id: "submit_dataproc_spark_job_task_20230105_7a5f64af"
+}
+placement {
+  cluster_name: "move-btc-data"
+  cluster_uuid: "a1d9a17f-3147-400f-a5b7-8d8343b8336e"
+}
+pyspark_job {
+  main_python_file_uri: "gs://data_lake_stocks-data-pipeline/Move_Current_SP_500_Data_From_GCS_to_BigQuery.py"
+  jar_file_uris: "gs://spark-lib/bigquery/spark-bigquery-with-dependencies_2.12-0.27.1.jar"
+}
+status {
+  state: CANCELLED
+  state_start_time {
+    seconds: 1672888247
+    nanos: 821205000
+  }
+}
+yarn_applications {
+  name: "test"
+  state: KILLED
+  progress: 1.0
+  tracking_url: "http://move-btc-data-m:8188/applicationhistory/app/application_1672887563483_0001"
+}
+status_history {
+  state: PENDING
+  state_start_time {
+    seconds: 1672887653
+    nanos: 183377000
+  }
+}
+status_history {
+  state: SETUP_DONE
+  state_start_time {
+    seconds: 1672887653
+    nanos: 228008000
+  }
+}
+status_history {
+  state: RUNNING
+  state_start_time {
+    seconds: 1672887653
+    nanos: 583448000
+  }
+}
+status_history {
+  state: CANCEL_PENDING
+  state_start_time {
+    seconds: 1672888237
+    nanos: 873839000
+  }
+}
+status_history {
+  state: CANCEL_STARTED
+  details: "Agent reported job failure"
+  state_start_time {
+    seconds: 1672888237
+    nanos: 901713000
+  }
+}
+driver_control_files_uri: "gs://dataproc-staging-us-central1-230775253-xzsonnys/google-cloud-dataproc-metainfo/a1d9a17f-3147-400f-a5b7-8d8343b8336e/jobs/submit_dataproc_spark_job_task_20230105_7a5f64af/"
+driver_output_resource_uri: "gs://dataproc-staging-us-central1-230775253-xzsonnys/google-cloud-dataproc-metainfo/a1d9a17f-3147-400f-a5b7-8d8343b8336e/jobs/submit_dataproc_spark_job_task_20230105_7a5f64af/driveroutput"
+labels {
+  key: "***-version"
+  value: "v2-3-2"
+}
+job_uuid: "8bd52edf-25bb-453f-9e60-932e2bd8d908"
+done: true
+
+[2023-01-05 03:10:53,938] {taskinstance.py:1395} INFO - Marking task as FAILED. dag_id=btc_data_pipeline_dag, task_id=submit_dataproc_spark_job_task, execution_date=20230105T025738, start_date=20230105T030052, end_date=20230105T031053
+[2023-01-05 03:10:53,953] {standard_task_runner.py:92} ERROR - Failed to execute job 47 for task submit_dataproc_spark_job_task (Job was cancelled:
+reference {
+  project_id: "stocks-data-pipeline"
+  job_id: "submit_dataproc_spark_job_task_20230105_7a5f64af"
+}
+placement {
+  cluster_name: "move-btc-data"
+  cluster_uuid: "a1d9a17f-3147-400f-a5b7-8d8343b8336e"
+}
+pyspark_job {
+  main_python_file_uri: "gs://data_lake_stocks-data-pipeline/Move_Current_SP_500_Data_From_GCS_to_BigQuery.py"
+  jar_file_uris: "gs://spark-lib/bigquery/spark-bigquery-with-dependencies_2.12-0.27.1.jar"
+}
+status {
+  state: CANCELLED
+  state_start_time {
+    seconds: 1672888247
+    nanos: 821205000
+  }
+}
+yarn_applications {
+  name: "test"
+  state: KILLED
+  progress: 1.0
+  tracking_url: "http://move-btc-data-m:8188/applicationhistory/app/application_1672887563483_0001"
+}
+status_history {
+  state: PENDING
+  state_start_time {
+    seconds: 1672887653
+    nanos: 183377000
+  }
+}
+status_history {
+  state: SETUP_DONE
+  state_start_time {
+    seconds: 1672887653
+    nanos: 228008000
+  }
+}
+status_history {
+  state: RUNNING
+  state_start_time {
+    seconds: 1672887653
+    nanos: 583448000
+  }
+}
+status_history {
+  state: CANCEL_PENDING
+  state_start_time {
+    seconds: 1672888237
+    nanos: 873839000
+  }
+}
+status_history {
+  state: CANCEL_STARTED
+  details: "Agent reported job failure"
+  state_start_time {
+    seconds: 1672888237
+    nanos: 901713000
+  }
+}
+driver_control_files_uri: "gs://dataproc-staging-us-central1-230775253-xzsonnys/google-cloud-dataproc-metainfo/a1d9a17f-3147-400f-a5b7-8d8343b8336e/jobs/submit_dataproc_spark_job_task_20230105_7a5f64af/"
+driver_output_resource_uri: "gs://dataproc-staging-us-central1-230775253-xzsonnys/google-cloud-dataproc-metainfo/a1d9a17f-3147-400f-a5b7-8d8343b8336e/jobs/submit_dataproc_spark_job_task_20230105_7a5f64af/driveroutput"
+labels {
+  key: "***-version"
+  value: "v2-3-2"
+}
+job_uuid: "8bd52edf-25bb-453f-9e60-932e2bd8d908"
+done: true
+; 431)
+[2023-01-05 03:10:53,970] {local_task_job.py:156} INFO - Task exited with return code 1

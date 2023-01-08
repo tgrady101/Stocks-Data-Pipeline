@@ -1,0 +1,25 @@
+[2023-01-07 00:00:13,304] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: stock_data_pipeline_dag.delete_cluster_dataproc_task scheduled__2023-01-05T23:15:00+00:00 [queued]>
+[2023-01-07 00:00:13,312] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: stock_data_pipeline_dag.delete_cluster_dataproc_task scheduled__2023-01-05T23:15:00+00:00 [queued]>
+[2023-01-07 00:00:13,313] {taskinstance.py:1356} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-07 00:00:13,313] {taskinstance.py:1357} INFO - Starting attempt 1 of 1
+[2023-01-07 00:00:13,313] {taskinstance.py:1358} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-07 00:00:13,324] {taskinstance.py:1377} INFO - Executing <Task(DataprocDeleteClusterOperator): delete_cluster_dataproc_task> on 2023-01-05 23:15:00+00:00
+[2023-01-07 00:00:13,331] {standard_task_runner.py:52} INFO - Started process 6270 to run task
+[2023-01-07 00:00:13,336] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'stock_data_pipeline_dag', 'delete_cluster_dataproc_task', 'scheduled__2023-01-05T23:15:00+00:00', '--job-id', '89', '--raw', '--subdir', 'DAGS_FOLDER/stock_data_pipeline_dag.py', '--cfg-path', '/tmp/tmpkod_nl06', '--error-file', '/tmp/tmpl_8e0j4e']
+[2023-01-07 00:00:13,337] {standard_task_runner.py:80} INFO - Job 89: Subtask delete_cluster_dataproc_task
+[2023-01-07 00:00:13,397] {task_command.py:370} INFO - Running <TaskInstance: stock_data_pipeline_dag.delete_cluster_dataproc_task scheduled__2023-01-05T23:15:00+00:00 [running]> on host 60ad85e83037
+[2023-01-07 00:00:13,468] {taskinstance.py:1569} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=stock_data_pipeline_dag
+AIRFLOW_CTX_TASK_ID=delete_cluster_dataproc_task
+AIRFLOW_CTX_EXECUTION_DATE=2023-01-05T23:15:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2023-01-05T23:15:00+00:00
+[2023-01-07 00:00:13,471] {base.py:68} INFO - Using connection ID 'google_cloud_default' for task execution.
+[2023-01-07 00:00:13,471] {dataproc.py:816} INFO - Deleting cluster: move-stock-data
+[2023-01-07 00:00:53,895] {dataproc.py:828} INFO - Cluster deleted.
+[2023-01-07 00:00:53,909] {taskinstance.py:1395} INFO - Marking task as SUCCESS. dag_id=stock_data_pipeline_dag, task_id=delete_cluster_dataproc_task, execution_date=20230105T231500, start_date=20230107T000013, end_date=20230107T000053
+[2023-01-07 00:00:53,959] {local_task_job.py:156} INFO - Task exited with return code 0
+[2023-01-07 00:00:53,983] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

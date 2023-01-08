@@ -1,0 +1,59 @@
+[2023-01-06 00:35:57,852] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: stock_data_pipeline_dag.delete_cluster_dataproc_task manual__2023-01-06T00:26:14.449284+00:00 [queued]>
+[2023-01-06 00:35:57,865] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: stock_data_pipeline_dag.delete_cluster_dataproc_task manual__2023-01-06T00:26:14.449284+00:00 [queued]>
+[2023-01-06 00:35:57,865] {taskinstance.py:1356} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-06 00:35:57,866] {taskinstance.py:1357} INFO - Starting attempt 1 of 1
+[2023-01-06 00:35:57,866] {taskinstance.py:1358} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-06 00:35:57,887] {taskinstance.py:1377} INFO - Executing <Task(DataprocDeleteClusterOperator): delete_cluster_dataproc_task> on 2023-01-06 00:26:14.449284+00:00
+[2023-01-06 00:35:57,897] {standard_task_runner.py:52} INFO - Started process 6821 to run task
+[2023-01-06 00:35:57,903] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'stock_data_pipeline_dag', 'delete_cluster_dataproc_task', 'manual__2023-01-06T00:26:14.449284+00:00', '--job-id', '75', '--raw', '--subdir', 'DAGS_FOLDER/stock_data_pipeline_dag.py', '--cfg-path', '/tmp/tmp1wwcnqek', '--error-file', '/tmp/tmpq4thmgo0']
+[2023-01-06 00:35:57,905] {standard_task_runner.py:80} INFO - Job 75: Subtask delete_cluster_dataproc_task
+[2023-01-06 00:35:57,969] {task_command.py:370} INFO - Running <TaskInstance: stock_data_pipeline_dag.delete_cluster_dataproc_task manual__2023-01-06T00:26:14.449284+00:00 [running]> on host 7aa3417b2d87
+[2023-01-06 00:35:58,042] {taskinstance.py:1569} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=stock_data_pipeline_dag
+AIRFLOW_CTX_TASK_ID=delete_cluster_dataproc_task
+AIRFLOW_CTX_EXECUTION_DATE=2023-01-06T00:26:14.449284+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-01-06T00:26:14.449284+00:00
+[2023-01-06 00:35:58,044] {base.py:68} INFO - Using connection ID 'google_cloud_default' for task execution.
+[2023-01-06 00:35:58,044] {dataproc.py:816} INFO - Deleting cluster: move-stock-data
+[2023-01-06 00:35:58,272] {taskinstance.py:1889} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/api_core/grpc_helpers.py", line 50, in error_remapped_callable
+    return callable_(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/grpc/_channel.py", line 946, in __call__
+    return _end_unary_response_blocking(state, call, False, None)
+  File "/home/airflow/.local/lib/python3.9/site-packages/grpc/_channel.py", line 849, in _end_unary_response_blocking
+    raise _InactiveRpcError(state)
+grpc._channel._InactiveRpcError: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.NOT_FOUND
+	details = "Not found: Cluster projects/stocks-data-pipeline/regions/us-central1/clusters/move-stock-data"
+	debug_error_string = "{"created":"@1672965358.271728045","description":"Error received from peer ipv4:142.250.112.95:443","file":"src/core/lib/surface/call.cc","file_line":966,"grpc_message":"Not found: Cluster projects/stocks-data-pipeline/regions/us-central1/clusters/move-stock-data","grpc_status":5}"
+>
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/providers/google/cloud/operators/dataproc.py", line 817, in execute
+    operation = hook.delete_cluster(
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/providers/google/common/hooks/base_google.py", line 463, in inner_wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/providers/google/cloud/hooks/dataproc.py", line 348, in delete_cluster
+    result = client.delete_cluster(
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/cloud/dataproc_v1/services/cluster_controller/client.py", line 1124, in delete_cluster
+    response = rpc(
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/api_core/gapic_v1/method.py", line 154, in __call__
+    return wrapped_func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/api_core/retry.py", line 283, in retry_wrapped_func
+    return retry_target(
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/api_core/retry.py", line 190, in retry_target
+    return target()
+  File "/home/airflow/.local/lib/python3.9/site-packages/google/api_core/grpc_helpers.py", line 52, in error_remapped_callable
+    raise exceptions.from_grpc_error(exc) from exc
+google.api_core.exceptions.NotFound: 404 Not found: Cluster projects/stocks-data-pipeline/regions/us-central1/clusters/move-stock-data
+[2023-01-06 00:35:58,289] {taskinstance.py:1395} INFO - Marking task as FAILED. dag_id=stock_data_pipeline_dag, task_id=delete_cluster_dataproc_task, execution_date=20230106T002614, start_date=20230106T003557, end_date=20230106T003558
+[2023-01-06 00:35:58,304] {standard_task_runner.py:92} ERROR - Failed to execute job 75 for task delete_cluster_dataproc_task (404 Not found: Cluster projects/stocks-data-pipeline/regions/us-central1/clusters/move-stock-data; 6821)
+[2023-01-06 00:35:58,318] {local_task_job.py:156} INFO - Task exited with return code 1
+[2023-01-06 00:35:58,354] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,33 @@
+[2023-01-07 23:06:07,143] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: btc_data_pipeline_dag.upload_BTC_data_to_datalake_task manual__2023-01-07T23:06:05.938776+00:00 [queued]>
+[2023-01-07 23:06:07,151] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: btc_data_pipeline_dag.upload_BTC_data_to_datalake_task manual__2023-01-07T23:06:05.938776+00:00 [queued]>
+[2023-01-07 23:06:07,152] {taskinstance.py:1356} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-07 23:06:07,152] {taskinstance.py:1357} INFO - Starting attempt 1 of 1
+[2023-01-07 23:06:07,152] {taskinstance.py:1358} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-07 23:06:07,164] {taskinstance.py:1377} INFO - Executing <Task(PythonOperator): upload_BTC_data_to_datalake_task> on 2023-01-07 23:06:05.938776+00:00
+[2023-01-07 23:06:07,171] {standard_task_runner.py:52} INFO - Started process 3478 to run task
+[2023-01-07 23:06:07,176] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'btc_data_pipeline_dag', 'upload_BTC_data_to_datalake_task', 'manual__2023-01-07T23:06:05.938776+00:00', '--job-id', '110', '--raw', '--subdir', 'DAGS_FOLDER/btc_data_pipeline_dag.py', '--cfg-path', '/tmp/tmpv8vdwhwd', '--error-file', '/tmp/tmpxuiouova']
+[2023-01-07 23:06:07,178] {standard_task_runner.py:80} INFO - Job 110: Subtask upload_BTC_data_to_datalake_task
+[2023-01-07 23:06:07,238] {task_command.py:370} INFO - Running <TaskInstance: btc_data_pipeline_dag.upload_BTC_data_to_datalake_task manual__2023-01-07T23:06:05.938776+00:00 [running]> on host 48dd7f56541e
+[2023-01-07 23:06:07,310] {taskinstance.py:1569} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=btc_data_pipeline_dag
+AIRFLOW_CTX_TASK_ID=upload_BTC_data_to_datalake_task
+AIRFLOW_CTX_EXECUTION_DATE=2023-01-07T23:06:05.938776+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-01-07T23:06:05.938776+00:00
+[2023-01-07 23:06:08,204] {taskinstance.py:1889} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/operators/python.py", line 171, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/operators/python.py", line 189, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/Load_Current_BTC_End_of_Day_Prices_Into_GCS.py", line 48, in main
+    beg_date, end_date = date_range()
+  File "/opt/airflow/dags/Load_Current_BTC_End_of_Day_Prices_Into_GCS.py", line 20, in date_range
+    end_date = end_date.strptime(end_date,'%Y-%m-%d')
+TypeError: strptime() argument 1 must be str, not datetime.datetime
+[2023-01-07 23:06:08,214] {taskinstance.py:1395} INFO - Marking task as FAILED. dag_id=btc_data_pipeline_dag, task_id=upload_BTC_data_to_datalake_task, execution_date=20230107T230605, start_date=20230107T230607, end_date=20230107T230608
+[2023-01-07 23:06:08,226] {standard_task_runner.py:92} ERROR - Failed to execute job 110 for task upload_BTC_data_to_datalake_task (strptime() argument 1 must be str, not datetime.datetime; 3478)
+[2023-01-07 23:06:08,271] {local_task_job.py:156} INFO - Task exited with return code 1

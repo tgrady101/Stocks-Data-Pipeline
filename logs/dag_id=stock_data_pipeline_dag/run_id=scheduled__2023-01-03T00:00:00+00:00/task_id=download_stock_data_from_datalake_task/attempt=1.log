@@ -1,0 +1,33 @@
+[2023-01-04 20:42:29,242] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: stock_data_pipeline_dag.download_stock_data_from_datalake_task scheduled__2023-01-03T00:00:00+00:00 [queued]>
+[2023-01-04 20:42:29,251] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: stock_data_pipeline_dag.download_stock_data_from_datalake_task scheduled__2023-01-03T00:00:00+00:00 [queued]>
+[2023-01-04 20:42:29,251] {taskinstance.py:1356} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-04 20:42:29,251] {taskinstance.py:1357} INFO - Starting attempt 1 of 2
+[2023-01-04 20:42:29,251] {taskinstance.py:1358} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-04 20:42:29,263] {taskinstance.py:1377} INFO - Executing <Task(BashOperator): download_stock_data_from_datalake_task> on 2023-01-03 00:00:00+00:00
+[2023-01-04 20:42:29,272] {standard_task_runner.py:52} INFO - Started process 105 to run task
+[2023-01-04 20:42:29,279] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'stock_data_pipeline_dag', 'download_stock_data_from_datalake_task', 'scheduled__2023-01-03T00:00:00+00:00', '--job-id', '5', '--raw', '--subdir', 'DAGS_FOLDER/stock_data_pipeline_dag.py', '--cfg-path', '/tmp/tmp5hcr14cg', '--error-file', '/tmp/tmpb1w4qxue']
+[2023-01-04 20:42:29,281] {standard_task_runner.py:80} INFO - Job 5: Subtask download_stock_data_from_datalake_task
+[2023-01-04 20:42:29,361] {task_command.py:370} INFO - Running <TaskInstance: stock_data_pipeline_dag.download_stock_data_from_datalake_task scheduled__2023-01-03T00:00:00+00:00 [running]> on host e35cd2348433
+[2023-01-04 20:42:29,488] {taskinstance.py:1569} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=stock_data_pipeline_dag
+AIRFLOW_CTX_TASK_ID=download_stock_data_from_datalake_task
+AIRFLOW_CTX_EXECUTION_DATE=2023-01-03T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2023-01-03T00:00:00+00:00
+[2023-01-04 20:42:29,490] {subprocess.py:62} INFO - Tmp dir root location: 
+ /tmp
+[2023-01-04 20:42:29,491] {subprocess.py:74} INFO - Running command: ['bash', '-c', 'Load_Current_SP_500_End_of_Day_Prices_Into_GCS.py']
+[2023-01-04 20:42:29,540] {subprocess.py:85} INFO - Output:
+[2023-01-04 20:42:29,548] {subprocess.py:92} INFO - bash: line 1: Load_Current_SP_500_End_of_Day_Prices_Into_GCS.py: command not found
+[2023-01-04 20:42:29,549] {subprocess.py:96} INFO - Command exited with return code 127
+[2023-01-04 20:42:29,587] {taskinstance.py:1889} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.9/site-packages/airflow/operators/bash.py", line 194, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 127.
+[2023-01-04 20:42:29,592] {taskinstance.py:1395} INFO - Marking task as UP_FOR_RETRY. dag_id=stock_data_pipeline_dag, task_id=download_stock_data_from_datalake_task, execution_date=20230103T000000, start_date=20230104T204229, end_date=20230104T204229
+[2023-01-04 20:42:29,618] {standard_task_runner.py:92} ERROR - Failed to execute job 5 for task download_stock_data_from_datalake_task (Bash command failed. The command returned a non-zero exit code 127.; 105)
+[2023-01-04 20:42:29,656] {local_task_job.py:156} INFO - Task exited with return code 1

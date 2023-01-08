@@ -1,0 +1,24 @@
+[2023-01-06 22:55:06,531] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: btc_data_pipeline_dag.create_cluster_dataproc_task scheduled__2023-01-05T22:55:00+00:00 [queued]>
+[2023-01-06 22:55:06,540] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: btc_data_pipeline_dag.create_cluster_dataproc_task scheduled__2023-01-05T22:55:00+00:00 [queued]>
+[2023-01-06 22:55:06,540] {taskinstance.py:1356} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-06 22:55:06,540] {taskinstance.py:1357} INFO - Starting attempt 1 of 1
+[2023-01-06 22:55:06,540] {taskinstance.py:1358} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-06 22:55:06,552] {taskinstance.py:1377} INFO - Executing <Task(DataprocCreateClusterOperator): create_cluster_dataproc_task> on 2023-01-05 22:55:00+00:00
+[2023-01-06 22:55:06,561] {standard_task_runner.py:52} INFO - Started process 3142 to run task
+[2023-01-06 22:55:06,565] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'btc_data_pipeline_dag', 'create_cluster_dataproc_task', 'scheduled__2023-01-05T22:55:00+00:00', '--job-id', '83', '--raw', '--subdir', 'DAGS_FOLDER/btc_data_pipeline_dag.py', '--cfg-path', '/tmp/tmpbw0nh_8b', '--error-file', '/tmp/tmpdwk_agt5']
+[2023-01-06 22:55:06,566] {standard_task_runner.py:80} INFO - Job 83: Subtask create_cluster_dataproc_task
+[2023-01-06 22:55:06,627] {task_command.py:370} INFO - Running <TaskInstance: btc_data_pipeline_dag.create_cluster_dataproc_task scheduled__2023-01-05T22:55:00+00:00 [running]> on host 60ad85e83037
+[2023-01-06 22:55:06,694] {taskinstance.py:1569} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=btc_data_pipeline_dag
+AIRFLOW_CTX_TASK_ID=create_cluster_dataproc_task
+AIRFLOW_CTX_EXECUTION_DATE=2023-01-05T22:55:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2023-01-05T22:55:00+00:00
+[2023-01-06 22:55:06,695] {dataproc.py:590} INFO - Creating cluster: move-btc-data
+[2023-01-06 22:55:06,697] {base.py:68} INFO - Using connection ID 'google_cloud_default' for task execution.
+[2023-01-06 22:58:05,425] {dataproc.py:534} INFO - Cluster created.
+[2023-01-06 22:58:05,458] {taskinstance.py:1395} INFO - Marking task as SUCCESS. dag_id=btc_data_pipeline_dag, task_id=create_cluster_dataproc_task, execution_date=20230105T225500, start_date=20230106T225506, end_date=20230106T225805
+[2023-01-06 22:58:05,493] {local_task_job.py:156} INFO - Task exited with return code 0

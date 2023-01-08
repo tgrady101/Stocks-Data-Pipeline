@@ -1,0 +1,24 @@
+[2023-01-05 00:11:14,954] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: stock_data_pipeline_dag.create_cluster_dataproc_task scheduled__2023-01-04T00:00:00+00:00 [queued]>
+[2023-01-05 00:11:14,967] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: stock_data_pipeline_dag.create_cluster_dataproc_task scheduled__2023-01-04T00:00:00+00:00 [queued]>
+[2023-01-05 00:11:14,967] {taskinstance.py:1356} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-05 00:11:14,968] {taskinstance.py:1357} INFO - Starting attempt 1 of 1
+[2023-01-05 00:11:14,968] {taskinstance.py:1358} INFO - 
+--------------------------------------------------------------------------------
+[2023-01-05 00:11:14,988] {taskinstance.py:1377} INFO - Executing <Task(DataprocCreateClusterOperator): create_cluster_dataproc_task> on 2023-01-04 00:00:00+00:00
+[2023-01-05 00:11:14,997] {standard_task_runner.py:52} INFO - Started process 1526 to run task
+[2023-01-05 00:11:15,003] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'stock_data_pipeline_dag', 'create_cluster_dataproc_task', 'scheduled__2023-01-04T00:00:00+00:00', '--job-id', '37', '--raw', '--subdir', 'DAGS_FOLDER/stock_data_pipeline_dag.py', '--cfg-path', '/tmp/tmp0njs57yg', '--error-file', '/tmp/tmpaxudcte8']
+[2023-01-05 00:11:15,005] {standard_task_runner.py:80} INFO - Job 37: Subtask create_cluster_dataproc_task
+[2023-01-05 00:11:15,070] {task_command.py:370} INFO - Running <TaskInstance: stock_data_pipeline_dag.create_cluster_dataproc_task scheduled__2023-01-04T00:00:00+00:00 [running]> on host 2302f2c95f83
+[2023-01-05 00:11:15,145] {taskinstance.py:1569} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=stock_data_pipeline_dag
+AIRFLOW_CTX_TASK_ID=create_cluster_dataproc_task
+AIRFLOW_CTX_EXECUTION_DATE=2023-01-04T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2023-01-04T00:00:00+00:00
+[2023-01-05 00:11:15,147] {dataproc.py:590} INFO - Creating cluster: move-data
+[2023-01-05 00:11:15,148] {base.py:68} INFO - Using connection ID 'google_cloud_default' for task execution.
+[2023-01-05 00:14:27,430] {dataproc.py:534} INFO - Cluster created.
+[2023-01-05 00:14:27,461] {taskinstance.py:1395} INFO - Marking task as SUCCESS. dag_id=stock_data_pipeline_dag, task_id=create_cluster_dataproc_task, execution_date=20230104T000000, start_date=20230105T001114, end_date=20230105T001427
+[2023-01-05 00:14:27,507] {local_task_job.py:156} INFO - Task exited with return code 0

@@ -1,3 +1,5 @@
+--Check for duplicate records
+
 select count(*)
 FROM {{ref('stock_data')}}
 GROUP BY date, ticker

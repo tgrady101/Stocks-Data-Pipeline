@@ -21,5 +21,5 @@ UNION ALL
 
 (select *
 from {{ ref("stock_data") }}
-where ticker = 'SPY' AND date = CURRENT_DATE('EST5EDT')
+where Ticker = 'SPY' AND date = CURRENT_DATE('EST5EDT')
 limit 1)

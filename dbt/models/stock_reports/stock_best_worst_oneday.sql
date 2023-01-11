@@ -4,7 +4,7 @@
 
 (select *
 from {{ ref("stock_data") }}
-WHERE date =  CURRENT_DATE('EST5EDT')
+WHERE date =  CURRENT_DATE('EST5EDT') AND oneday_percent_change != NULL
 order by oneday_percent_change asc
 limit 5)
 
@@ -12,13 +12,7 @@ UNION ALL
 
 (select *
 from {{ ref("stock_data") }}
-WHERE date = CURRENT_DATE('EST5EDT')
+WHERE date = CURRENT_DATE('EST5EDT') AND oneday_percent_change != NULL
 order by oneday_percent_change desc
 limit 5)
 
-UNION ALL
-
-(select *
-from {{ ref("stock_data") }}
-where Ticker = 'SPY' AND date = CURRENT_DATE('EST5EDT')
-limit 1)

@@ -1,5 +1,7 @@
 {{ config(materialized='table') }}
 
+--Use LEAD function to pull close from one/five/twenty trading days ago. Use to calculate return percentage over that period.
+
 select v.* , i.*, 
 ROUND(((v.adjclose - LEAD(v.adjClose) OVER(PARTITION BY ticker ORDER BY date DESC)) / LEAD(v.adjClose) OVER(PARTITION BY ticker ORDER BY date DESC)) * 100, 2) as oneday_percent_change,
 ROUND(((v.adjclose - LEAD(v.adjClose, 5) OVER(PARTITION BY ticker ORDER BY date DESC)) / LEAD(v.adjClose, 5) OVER(PARTITION BY ticker ORDER BY date DESC)) * 100, 2) as fiveday_percent_change,

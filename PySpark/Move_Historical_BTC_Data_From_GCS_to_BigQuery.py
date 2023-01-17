@@ -1,12 +1,11 @@
 import pyspark
 from pyspark.sql import SparkSession, types
 from google.cloud import bigquery
-from datetime import date, datetime
-import pytz
+
 
 def transform_df(ticker, spark):
 
-    #Define PySpark Schema
+    #Create PySpark schema
     schema = types.StructType([
     types.StructField('_c0', types.StringType(), True),
     types.StructField('date', types.DateType(), True),
@@ -20,22 +19,18 @@ def transform_df(ticker, spark):
     types.StructField('ticker', types.StringType(), True), 
     ])
 
-    #Create path to load todays data
-    today = datetime.now(pytz.timezone('US/Eastern'))
+    #Read data from GCS to a PySpark dataframe
     bucket_name="data_lake_stocks-data-pipeline"
-    path=f"gs://{bucket_name}/{ticker} Updated Data as of {today}"
-
-    #Read GCS data into PySpark dataframe
+    path=f"gs://{bucket_name}/{ticker} Three Year Daily Price History"
     df = spark.read \
         .option('header', 'true') \
         .schema(schema) \
         .csv(path)
-
-    #Drop extra column
     df = df.drop('_c0')
     return df
 
 def load_df(df):
+    
     #Write Data to BigQuery Table
     GCP_PROJECT_ID = "stocks-data-pipeline"
     BQ_DATASET = "Stock_Info_Dataset"

@@ -4,9 +4,8 @@ from google.cloud import bigquery
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
-from datetime import datetime, timezone
-import pytz
 
+   
 #Generate a current listing of S&P 500 companies by scrapping the Wikipedia page
 def gen_ticker_list():
 
@@ -50,11 +49,8 @@ def transform_df(ticker, spark):
     types.StructField('ticker', types.StringType(), True), 
     ])
 
-    #Read data from GCS to a PySpark dataframe
     bucket_name="data_lake_stocks-data-pipeline"
-    today = datetime.now(pytz.timezone('US/Eastern'))
-    today = today.strftime('%Y-%m-%d')
-    path=f"gs://{bucket_name}/{ticker} Updated Data as of {today}"
+    path=f"gs://{bucket_name}/{ticker} Three Year Daily Price History"
     df = spark.read \
         .option('header', 'true') \
         .schema(schema) \
@@ -63,7 +59,7 @@ def transform_df(ticker, spark):
     return df
 
 def load_df(df):
-    #Write Data to BigQuery Table
+    #Load Data to BigQuery Table
     GCP_PROJECT_ID = "stocks-data-pipeline"
     BQ_DATASET = "Stock_Info_Dataset"
     BQ_TABLE = "stock_values"

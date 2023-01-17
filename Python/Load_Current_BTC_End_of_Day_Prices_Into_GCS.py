@@ -7,6 +7,8 @@ import time
 import pytz
 
 def date_range():
+
+    #Run SQL query against BigQuery table to find latest date loaded
     client = bigquery.Client(project='stocks-data-pipeline')
     job = client.query("""SELECT date
             FROM `stocks-data-pipeline.Stock_Info_Dataset.BTC_values`
@@ -14,9 +16,13 @@ def date_range():
             LIMIT 1""")
     for row in job.result():
         temp_date = format(row[0])
+
+    #Safe result date to beg_date
     beg_date = datetime.strptime(temp_date, "%Y-%m-%d")
     beg_date = beg_date + timedelta(days = 1)
     beg_date = beg_date.astimezone(pytz.timezone('US/Eastern'))
+
+    #end_date is today
     end_date = datetime.now(pytz.timezone('US/Eastern'))
     assert beg_date <= end_date, "Beginning Date is in the Future"
     beg_date = beg_date.strftime("%Y-%m-%d")
@@ -28,9 +34,12 @@ def prepare_csv(beg_date, end_date):
     config = {}
     config['session'] = True
     config['api_key'] = "0015ea3a0ed951cea8f45258393fd6b595327627"
-    
     client = TiingoClient(config)
+
+    #Pull BTC data into dictionary
     historical_prices = client.get_crypto_price_history(tickers = ['BTCUSD'], startDate=beg_date, endDate=end_date, resampleFreq='24Hour')
+    
+    #Convert to pandas dataframe
     df = pd.DataFrame(historical_prices[0]["priceData"])
     df["ticker"] = "BTC"
     df['tradesDone'] = df['tradesDone'].astype(int)
@@ -41,6 +50,8 @@ def load_csv(df, ticker):
     today = datetime.now(pytz.timezone('US/Eastern'))
     today = today.strftime('%Y-%m-%d')
     client = storage.Client()
+
+    #Write data to GCS
     bucket = client.get_bucket('data_lake_stocks-data-pipeline')
     bucket.blob(f'{ticker} Updated Data as of {today}').upload_from_string(df.to_csv(), "BTC Updated Price Data")
     

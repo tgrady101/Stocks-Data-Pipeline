@@ -2,8 +2,6 @@
 
 This project involved creating a data pipeline to analyze S&P 500 end of day prices going from three years ago to the current day. The data is processed via an ETL pipeline that supports a dashboard which shows the top five and bottom five stocks over different historical periods.
 
-To view all of the source code please visit my GitHub: https://github.com/tgrady101/Stocks-Data-Pipeline
-
 # Tools and Technologies Used
 
 * Cloud — Google Cloud Platform

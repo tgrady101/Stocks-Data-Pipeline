@@ -10,14 +10,23 @@ To view all of the source code please visit my GitHub: https://github.com/tgrady
 **Tools and Technologies Used**
 
 Cloud - Google Cloud Platform
+
 Infrastructure as Code - Terraform
+
 Containerization - Docker, Docker Compose
+
 Orchestration - Airflow
+
 Transformation - Spark
+
 Transformation - dbt
+
 Data Lake - Google Cloud Storage
+
 Data Warehouse - BigQuery
+
 Data Visualization - Tableau
+
 Languages - Python, SQL
 
 **Architecture**

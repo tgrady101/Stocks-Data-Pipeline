@@ -41,7 +41,4 @@ Inside of my dbt schema.yml file I use the default not_null and unique tests on 
 
 Once the dbt job is run my final result is a Tableau dashboard updated to the current days data. The dashboard shows the top five and bottom five S&P 500 stocks over the last one/five/twenty trading days.
 
-# Next Steps
-
-My next goal is to create a similar data pipeline but streaming real time data via Kafka.
 
